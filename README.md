@@ -1,4 +1,4 @@
-# Electron Fabric Console 
+# Fabric Console 
 
 [![JavaScript Standard Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com)
 
@@ -10,8 +10,8 @@ which is a desktop app that interactively and with sample code demonstrates core
 You'll need [Node.js](https://nodejs.org) installed on your computer in order to build this app.
 
 ```bash
-$ git clone https://github.com/zhangmin510/electron-fabric-console
-$ cd electron-fabric-console
+$ git clone https://github.com/zhangmin510/fabric-console
+$ cd fabric-console
 $ npm install
 $ npm start
 ```

@@ -1,8 +1,8 @@
 {
-  "name": "ElectronFabricConsole",
-  "productName": "Electron Fabric Console",
+  "name": "FabricConsole",
+  "productName": "Fabric Console",
   "version": "0.1.0",
-  "description": "Electron fabric console",
+  "description": "fabric console",
   "private": true,
   "main": "main.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks"
   },
-  "repository": "https://github.com/zhangmin510/electron-fabric-console",
+  "repository": "https://github.com/zhangmin510/fabric-console",
   "keywords": [
     "Electron",
     "Fabric",
@@ -35,7 +35,7 @@
     "chai-as-promised": "^6.0.0",
     "check-for-leaks": "^1.2.0",
     "devtron": "^1.3.0",
-    "electron": "~1.6.2",
+    "electron": "2.0.8",
     "electron-packager": "^8.6.0",
     "electron-winstaller": "^2.2.0",
     "husky": "^0.14.3",
