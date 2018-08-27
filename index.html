@@ -12,7 +12,11 @@
   <link rel="stylesheet" href="assets/css/demo.css">
   <link rel="stylesheet" href="assets/css/github.css">
 
+  <!--fabirc related code-->
+  <link rel="import" href="sections/mps/member-provider-service.html">
+  <link rel="import" href="sections/chaincode/chaincode.html">
   <link rel="import" href="sections/about.html">
+  <!--fabirc related code-->
   <link rel="import" href="sections/windows/windows.html">
   <link rel="import" href="sections/windows/crash-hang.html">
   <link rel="import" href="sections/menus/menus.html">
@@ -39,10 +43,17 @@
     <div class="nav-item u-category-windows">
       <h5 class="nav-category">
         <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
-        Member Provider Service
+        用户管理
       </h5>
-      <button type="button" id="button-windows" data-section="windows" class="nav-button">Create and manage <em>windows</em></button>
-      <button type="button" id="button-crash-hang" data-section="crash-hang" class="nav-button">Handling window <em>crashes and hangs</em></button>
+      <button type="button" id="button-windows" data-section="mps" class="nav-button">用户 <em>管理</em></button>
+    </div>
+
+    <div class="nav-item u-category-windows">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
+        Chaincode
+      </h5>
+      <button type="button" id="button-windows" data-section="chaincode" class="nav-button">Chaincode <em>Management</em></button>
     </div>
 
     <div class="nav-item u-category-windows">
