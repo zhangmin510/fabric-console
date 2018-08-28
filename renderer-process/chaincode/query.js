@@ -2,24 +2,24 @@
 /*
  * Chaincode query
  */
-const Fabric_Client = require('fabric-client');
-const path = require('path');
-const util = require('util');
-const os = require('os');
+// const Fabric_Client = require('fabric-client');
+// const path = require('path');
+// const util = require('util');
+// const os = require('os');
 
-//
-const fabric_client = new Fabric_Client();
+// //
+// const fabric_client = new Fabric_Client();
 
-// setup the fabric network
-const channel = fabric_client.newChannel('mychannel');
-const peer = fabric_client.newPeer('grpc://localhost:7051');
-channel.addPeer(peer);
+// // setup the fabric network
+// const channel = fabric_client.newChannel('mychannel');
+// const peer = fabric_client.newPeer('grpc://localhost:7051');
+// channel.addPeer(peer);
 
-//
-const member_user = null;
-const store_path = path.join(__dirname, 'hfc-key-store');
-console.log('Store path:'+store_path);
-const tx_id = null;
+// //
+// const member_user = null;
+// const store_path = path.join(__dirname, 'hfc-key-store');
+// console.log('Store path:'+store_path);
+// const tx_id = null;
 
 
 //const queryResult = document.getElementById('query-reply')
