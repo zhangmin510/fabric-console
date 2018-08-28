@@ -12,10 +12,10 @@ You'll need [Node.js](https://nodejs.org) installed on your computer in order to
 ```bash
 $ git clone https://github.com/zhangmin510/fabric-console
 $ cd fabric-console
-$ npm install
-$ npm start
-```
-
-```bash
+$ cnpm i --save-dev electron-rebuild
+$ cnpm i
+$ ./node_modules/.bin/electron-rebuild
 $ npm run dev
 ```
+
+Integrate `fabric-client` with electron using `electron-rebuild`(reference: https://electronjs.org/docs/tutorial/using-native-node-modules
