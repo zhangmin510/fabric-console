@@ -57,7 +57,8 @@
     "fabric-client": "^1.2.1",
     "glob": "^7.1.0",
     "grpc": "^1.10.1",
-    "highlight.js": "^9.3.0"
+    "highlight.js": "^9.3.0",
+    "log4js": "^0.6.38"
   },
   "standard": {
     "env": {

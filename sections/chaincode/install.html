@@ -1,0 +1,41 @@
+<template class="task-template">
+  <section id="chaincode-install-section" class="section js-section u-category-menu">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
+          Chaincode Management 
+        </h1>
+        <h3>初始化chaincode，调用 </h3>
+
+        <p>chaincode</p>
+
+      </div>
+    </header>
+
+    
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">Chaincode List
+          <div class="demo-meta u-avoid-clicks">查询Chaincode <span class="demo-meta-divider">|</span> 管理和查询</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="chaincode">初始化Chaincode</button>
+            <button class="demo-button" id="query">Query Chaincode</button>
+            <span class="demo-response" id="query-reply"></span>
+          </div>
+           <p>TODO: Chaincode管理</p>
+
+           <p id="query-result"></p>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/chaincode/chaincode')
+      require('./renderer-process/chaincode/query')
+    </script>
+
+  </section>
+</template>

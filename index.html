@@ -13,24 +13,19 @@
   <link rel="stylesheet" href="assets/css/github.css">
 
   <!--fabirc related code-->
-  <link rel="import" href="sections/mps/member-provider-service.html">
-  <link rel="import" href="sections/chaincode/chaincode.html">
+  <link rel="import" href="sections/user/create.html">
+
+  <link rel="import" href="sections/channel/create.html">
+
+  <link rel="import" href="sections/network/config.html">
+
+  <link rel="import" href="sections/chaincode/install.html">
+  <link rel="import" href="sections/chaincode/instantiate.html">
+  <link rel="import" href="sections/chaincode/invoke.html">
+  <link rel="import" href="sections/chaincode/query.html">
+
   <link rel="import" href="sections/about.html">
   <!--fabirc related code-->
-  <link rel="import" href="sections/windows/windows.html">
-  <link rel="import" href="sections/windows/crash-hang.html">
-  <link rel="import" href="sections/menus/menus.html">
-  <link rel="import" href="sections/menus/shortcuts.html">
-  <link rel="import" href="sections/native-ui/ex-links-file-manager.html">
-  <link rel="import" href="sections/native-ui/notifications.html">
-  <link rel="import" href="sections/native-ui/dialogs.html">
-  <link rel="import" href="sections/native-ui/tray.html">
-  <link rel="import" href="sections/communication/ipc.html">
-  <link rel="import" href="sections/system/app-sys-information.html">
-  <link rel="import" href="sections/system/clipboard.html">
-  <link rel="import" href="sections/system/protocol-handler.html">
-  <link rel="import" href="sections/media/pdf.html">
-  <link rel="import" href="sections/media/desktop-capturer.html">
 </head>
 <body>
 
@@ -43,72 +38,36 @@
     <div class="nav-item u-category-windows">
       <h5 class="nav-category">
         <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
-        用户管理
+        User Management 
       </h5>
-      <button type="button" id="button-windows" data-section="mps" class="nav-button">用户 <em>管理</em></button>
-    </div>
-
-    <div class="nav-item u-category-windows">
-      <h5 class="nav-category">
-        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
-        Chaincode
-      </h5>
-      <button type="button" id="button-windows" data-section="chaincode" class="nav-button">Chaincode <em>Management</em></button>
-    </div>
-
-    <div class="nav-item u-category-windows">
-      <h5 class="nav-category">
-        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
-        Windows
-      </h5>
-      <button type="button" id="button-windows" data-section="windows" class="nav-button">Create and manage <em>windows</em></button>
-      <button type="button" id="button-crash-hang" data-section="crash-hang" class="nav-button">Handling window <em>crashes and hangs</em></button>
-    </div>
-
-    <div class="nav-item u-category-menu">
-      <h5 class="nav-category">
-        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
-        Menus
-      </h5>
-      <button type="button" id="button-menus" data-section="menus" class="nav-button">Customize <em>menus</em> </button>
-      <button type="button" id="button-shortcuts" data-section="shortcuts" class="nav-button">Register keyboard <em>shortcuts</em></button>
-    </div>
-
-    <div class="nav-item u-category-native-ui">
-      <h5 class="nav-category">
-        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-native-ui"></use></svg>
-        Native User Interface</h5>
-      <button type="button" id="button-ex-links-file-manager" data-section="ex-links-file-manager" class="nav-button">Open <em>external links</em> or system <em>file manager</em></button>
-      <button type="button" id="button-notifications" data-section="notifications" class="nav-button"> Notifications with and without custom <em>image</em></button>
-      <button type="button" id="button-dialogs" data-section="dialogs" class="nav-button">Use system <em>dialogs</em></button>
-      <button type="button" id="button-tray" data-section="tray" class="nav-button">Put your app in the <em>tray</em></button>
+      <button type="button" id="button-user-create" data-section="user-create" class="nav-button">User <em>Create</em></button>
     </div>
 
     <div class="nav-item u-category-communication">
       <h5 class="nav-category">
         <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-communication"></use></svg>
-        Communication
+        Channel Management 
       </h5>
-      <button type="button" id="button-ipc" data-section="ipc" class="nav-button">Communicate between the <em>two processes</em></button>
+      <button type="button" id="button-channel-create" data-section="channel-create" class="nav-button">Channel <em>Create</em></button>
+    </div>
+
+    <div class="nav-item u-category-menu">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
+        Chaincode Management
+      </h5>
+      <button type="button" id="button-chaincode-query" data-section="chaincode-query" class="nav-button">Chaincode <em>Query</em></button>
+      <button type="button" id="button-chaincode-install" data-section="chaincode-install" class="nav-button">Chaincode <em>Install</em></button>
+      <button type="button" id="button-chaincode-instantiate" data-section="chaincode-instantiate" class="nav-button">Chaincode <em>Instantiate</em></button>
+      <button type="button" id="button-chaincode-invoke" data-section="chaincode-invoke" class="nav-button">Chaincode <em>Invoke</em></button>
     </div>
 
     <div class="nav-item u-category-system">
       <h5 class="nav-category">
         <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-system"></use></svg>
-        System
+        Fabric Network Configuration
       </h5>
-      <button type="button" id="button-app-sys-information" data-section="app-sys-information" class="nav-button" >Get app or user <em>system information</em></button>
-      <button type="button" id="button-clipboard" data-section="clipboard" class="nav-button">Copy and paste from the <em>clipboard</em></button>
-      <button type="button" id="button-protocol" data-section="protocol" class="nav-button">Launch app from <em>protocol handler</em></button>
-    </div>
-
-    <div class="nav-item u-category-media">
-      <h5 class="nav-category">
-        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-media"></use></svg>
-        Media
-      </h5>
-      <button type="button" id="button-pdf" data-section="pdf" class="nav-button"><em>Print</em> to PDF</button>
-      <button type="button" id="button-desktop-capturer" data-section="desktop-capturer" class="nav-button">Take a <em>screenshot</em></button>
+      <button type="button" id="button-network-config" data-section="network" class="nav-button" >Fabric <em>Network</em></button>
     </div>
 
     <footer class="nav-footer">

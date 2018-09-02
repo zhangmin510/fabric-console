@@ -1,0 +1,158 @@
+{
+    "version": "1.0.0",
+    "peers": {
+        "peer2.bimaorg1.aliyunbaas.com:31121": {
+            "url": "grpcs://peer2.bimaorg1.aliyunbaas.com:31121",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICITCCAcegAwIBAgIUejKFUe0W/E7aUt6WCw/S0njRKYYwCgYIKoZIzj0EAwIw\nbTELMAkGA1UEBhMCQ04xETAPBgNVBAgTCFpoZWppYW5nMREwDwYDVQQHEwhIYW5n\nemhvdTEWMBQGA1UEChMNQWxpYmFiYSBDbG91ZDEgMB4GA1UEAxMXRmFicmljLUNB\nIFRMUyBSb290IENlcnQwHhcNMTgwODMwMTMwMDAwWhcNMzgwODI1MTMwMDAwWjBt\nMQswCQYDVQQGEwJDTjERMA8GA1UECBMIWmhlamlhbmcxETAPBgNVBAcTCEhhbmd6\naG91MRYwFAYDVQQKEw1BbGliYWJhIENsb3VkMSAwHgYDVQQDExdGYWJyaWMtQ0Eg\nVExTIFJvb3QgQ2VydDBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABB3nKsty4keC\n2jDH9e/hSPQu2I3hakNuu2H+jc8jnTlNilLRiUfKZUOQHWa4o17O+Wdxtewym1QL\n2o3dVqDA0gijRTBDMA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEB\nMB0GA1UdDgQWBBSRXk04oLtfKVKLpRaXdj6QYegklTAKBggqhkjOPQQDAgNIADBF\nAiEAwR1y+A0dSIDFGt462FIKCdwK73Houuqnq5bUPrhJcbICIEwTY8jwmGEqpJsR\nMbsEmn+norprWVY/fDVQxdVNk3iR\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "allow-insecure": false,
+                "fail-fast": false,
+                "keep-alive-permit": false,
+                "keep-alive-time": "0s",
+                "keep-alive-timeout": "20s",
+                "ssl-target-name-override": "peer2.bimaorg1.aliyunbaas.com"
+            },
+            "eventUrl": "grpcs://peer2.bimaorg1.aliyunbaas.com:31123"
+        },
+        "peer1.bimaorg1.aliyunbaas.com:31111": {
+            "url": "grpcs://peer1.bimaorg1.aliyunbaas.com:31111",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICITCCAcegAwIBAgIUejKFUe0W/E7aUt6WCw/S0njRKYYwCgYIKoZIzj0EAwIw\nbTELMAkGA1UEBhMCQ04xETAPBgNVBAgTCFpoZWppYW5nMREwDwYDVQQHEwhIYW5n\nemhvdTEWMBQGA1UEChMNQWxpYmFiYSBDbG91ZDEgMB4GA1UEAxMXRmFicmljLUNB\nIFRMUyBSb290IENlcnQwHhcNMTgwODMwMTMwMDAwWhcNMzgwODI1MTMwMDAwWjBt\nMQswCQYDVQQGEwJDTjERMA8GA1UECBMIWmhlamlhbmcxETAPBgNVBAcTCEhhbmd6\naG91MRYwFAYDVQQKEw1BbGliYWJhIENsb3VkMSAwHgYDVQQDExdGYWJyaWMtQ0Eg\nVExTIFJvb3QgQ2VydDBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABB3nKsty4keC\n2jDH9e/hSPQu2I3hakNuu2H+jc8jnTlNilLRiUfKZUOQHWa4o17O+Wdxtewym1QL\n2o3dVqDA0gijRTBDMA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEB\nMB0GA1UdDgQWBBSRXk04oLtfKVKLpRaXdj6QYegklTAKBggqhkjOPQQDAgNIADBF\nAiEAwR1y+A0dSIDFGt462FIKCdwK73Houuqnq5bUPrhJcbICIEwTY8jwmGEqpJsR\nMbsEmn+norprWVY/fDVQxdVNk3iR\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "allow-insecure": false,
+                "fail-fast": false,
+                "keep-alive-permit": false,
+                "keep-alive-time": "0s",
+                "keep-alive-timeout": "20s",
+                "ssl-target-name-override": "peer1.bimaorg1.aliyunbaas.com"
+            },
+            "eventUrl": "grpcs://peer1.bimaorg1.aliyunbaas.com:31113"
+        }
+    },
+    "organizations": {
+        "bimaorg1MSP": {
+            "peers": [
+                "peer1.bimaorg1.aliyunbaas.com:31111",
+                "peer2.bimaorg1.aliyunbaas.com:31121"
+            ],
+            "mspid": "bimaorg1MSP",
+            "cryptoPath": "/tmp/msp",
+            "certificateAuthorities": [
+                "ca1.bimaorg1.aliyunbaas.com"
+            ]
+        }
+    },
+    "orderers": {
+        "orderer1": {
+            "url": "grpcs://orderer1.bima.aliyunbaas.com:31010",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICBTCCAaugAwIBAgIUW7CFkax1CxJYlZtgyJSXWrQgpHgwCgYIKoZIzj0EAwIw\nXzELMAkGA1UEBhMCQ04xETAPBgNVBAgTCFpoZWppYW5nMREwDwYDVQQHEwhIYW5n\nemhvdTENMAsGA1UEChMEYmltYTEbMBkGA1UEAxMSYmltYSBUTFMgUm9vdCBDZXJ0\nMB4XDTE4MDgzMDEzNTMwMFoXDTM4MDgyNTEzNTMwMFowXzELMAkGA1UEBhMCQ04x\nETAPBgNVBAgTCFpoZWppYW5nMREwDwYDVQQHEwhIYW5nemhvdTENMAsGA1UEChME\nYmltYTEbMBkGA1UEAxMSYmltYSBUTFMgUm9vdCBDZXJ0MFkwEwYHKoZIzj0CAQYI\nKoZIzj0DAQcDQgAEDxwRNF7fblTpfT4EVsoZHDK56+2olSQPTyeDH7hEgxjZ5SLP\n42mhQ9x+knQ/G2Or36WNDSSSWzZgu5x1Tq1inaNFMEMwDgYDVR0PAQH/BAQDAgEG\nMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYEFI3pYg+z4cgPGFFeeUzjazlA\nGVAnMAoGCCqGSM49BAMCA0gAMEUCIQDfBUei9K5TxJyfV7tnz6HykM5PcRglkMi6\nv4kyTBmKJQIgW6PUSEgzQSt/jBo9aVufnpHAtPOqJfg3eoufHLY0fX0=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "allow-insecure": false,
+                "fail-fast": false,
+                "keep-alive-permit": false,
+                "keep-alive-time": "0s",
+                "keep-alive-timeout": "20s",
+                "ssl-target-name-override": "orderer1.bima.aliyunbaas.com"
+            }
+        },
+        "orderer2": {
+            "url": "grpcs://orderer2.bima.aliyunbaas.com:31020",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICBTCCAaugAwIBAgIUW7CFkax1CxJYlZtgyJSXWrQgpHgwCgYIKoZIzj0EAwIw\nXzELMAkGA1UEBhMCQ04xETAPBgNVBAgTCFpoZWppYW5nMREwDwYDVQQHEwhIYW5n\nemhvdTENMAsGA1UEChMEYmltYTEbMBkGA1UEAxMSYmltYSBUTFMgUm9vdCBDZXJ0\nMB4XDTE4MDgzMDEzNTMwMFoXDTM4MDgyNTEzNTMwMFowXzELMAkGA1UEBhMCQ04x\nETAPBgNVBAgTCFpoZWppYW5nMREwDwYDVQQHEwhIYW5nemhvdTENMAsGA1UEChME\nYmltYTEbMBkGA1UEAxMSYmltYSBUTFMgUm9vdCBDZXJ0MFkwEwYHKoZIzj0CAQYI\nKoZIzj0DAQcDQgAEDxwRNF7fblTpfT4EVsoZHDK56+2olSQPTyeDH7hEgxjZ5SLP\n42mhQ9x+knQ/G2Or36WNDSSSWzZgu5x1Tq1inaNFMEMwDgYDVR0PAQH/BAQDAgEG\nMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYEFI3pYg+z4cgPGFFeeUzjazlA\nGVAnMAoGCCqGSM49BAMCA0gAMEUCIQDfBUei9K5TxJyfV7tnz6HykM5PcRglkMi6\nv4kyTBmKJQIgW6PUSEgzQSt/jBo9aVufnpHAtPOqJfg3eoufHLY0fX0=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "allow-insecure": false,
+                "fail-fast": false,
+                "keep-alive-permit": false,
+                "keep-alive-time": "0s",
+                "keep-alive-timeout": "20s",
+                "ssl-target-name-override": "orderer2.bima.aliyunbaas.com"
+            }
+        },
+        "orderer3": {
+            "url": "grpcs://orderer3.bima.aliyunbaas.com:31030",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICBTCCAaugAwIBAgIUW7CFkax1CxJYlZtgyJSXWrQgpHgwCgYIKoZIzj0EAwIw\nXzELMAkGA1UEBhMCQ04xETAPBgNVBAgTCFpoZWppYW5nMREwDwYDVQQHEwhIYW5n\nemhvdTENMAsGA1UEChMEYmltYTEbMBkGA1UEAxMSYmltYSBUTFMgUm9vdCBDZXJ0\nMB4XDTE4MDgzMDEzNTMwMFoXDTM4MDgyNTEzNTMwMFowXzELMAkGA1UEBhMCQ04x\nETAPBgNVBAgTCFpoZWppYW5nMREwDwYDVQQHEwhIYW5nemhvdTENMAsGA1UEChME\nYmltYTEbMBkGA1UEAxMSYmltYSBUTFMgUm9vdCBDZXJ0MFkwEwYHKoZIzj0CAQYI\nKoZIzj0DAQcDQgAEDxwRNF7fblTpfT4EVsoZHDK56+2olSQPTyeDH7hEgxjZ5SLP\n42mhQ9x+knQ/G2Or36WNDSSSWzZgu5x1Tq1inaNFMEMwDgYDVR0PAQH/BAQDAgEG\nMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYEFI3pYg+z4cgPGFFeeUzjazlA\nGVAnMAoGCCqGSM49BAMCA0gAMEUCIQDfBUei9K5TxJyfV7tnz6HykM5PcRglkMi6\nv4kyTBmKJQIgW6PUSEgzQSt/jBo9aVufnpHAtPOqJfg3eoufHLY0fX0=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "allow-insecure": false,
+                "fail-fast": false,
+                "keep-alive-permit": false,
+                "keep-alive-time": "0s",
+                "keep-alive-timeout": "20s",
+                "ssl-target-name-override": "orderer3.bima.aliyunbaas.com"
+            }
+        }
+    },
+    "name": "Aliyun-Baas-Config",
+    "description": "The network generated by aliyun BaaS.",
+    "client": {
+        "organization": "bimaorg1MSP",
+        "logging": {
+            "level": "info"
+        },
+        "credentialStore": {
+            "path": "/tmp/fabric-console/msp/signcerts",
+            "cryptoStore": {
+                "path": "/tmp/fabric-console/msp"
+            }
+        },
+        "BCCSP": {
+            "security": {
+                "default": {
+                    "provider": "SW"
+                },
+                "level": 256,
+                "softVerify": true,
+                "enabled": true,
+                "hashAlgorithm": "SHA2"
+            }
+        }
+    },
+    "channels": {
+        "channel1": {
+            "peers": {
+                "peer1.bimaorg1.aliyunbaas.com:31111": {
+                    "chaincodeQuery": true,
+                    "endorsingPeer": true,
+                    "eventSource": true,
+                    "ledgerQuery": true
+                },
+                "peer2.bimaorg1.aliyunbaas.com:31121": {
+                    "chaincodeQuery": true,
+                    "endorsingPeer": true,
+                    "eventSource": true,
+                    "ledgerQuery": true
+                }
+            },
+            "orderers": [
+                "orderer1",
+                "orderer2",
+                "orderer3"
+            ],
+            "chaincodes": [
+                "marbles:v4"
+            ]
+        }
+    },
+    "certificateAuthorities": {
+        "ca1.bimaorg1.aliyunbaas.com": {
+            "url": "https://ca1.bimaorg1.aliyunbaas.com:31154",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICITCCAcegAwIBAgIUejKFUe0W/E7aUt6WCw/S0njRKYYwCgYIKoZIzj0EAwIw\nbTELMAkGA1UEBhMCQ04xETAPBgNVBAgTCFpoZWppYW5nMREwDwYDVQQHEwhIYW5n\nemhvdTEWMBQGA1UEChMNQWxpYmFiYSBDbG91ZDEgMB4GA1UEAxMXRmFicmljLUNB\nIFRMUyBSb290IENlcnQwHhcNMTgwODMwMTMwMDAwWhcNMzgwODI1MTMwMDAwWjBt\nMQswCQYDVQQGEwJDTjERMA8GA1UECBMIWmhlamlhbmcxETAPBgNVBAcTCEhhbmd6\naG91MRYwFAYDVQQKEw1BbGliYWJhIENsb3VkMSAwHgYDVQQDExdGYWJyaWMtQ0Eg\nVExTIFJvb3QgQ2VydDBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABB3nKsty4keC\n2jDH9e/hSPQu2I3hakNuu2H+jc8jnTlNilLRiUfKZUOQHWa4o17O+Wdxtewym1QL\n2o3dVqDA0gijRTBDMA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEB\nMB0GA1UdDgQWBBSRXk04oLtfKVKLpRaXdj6QYegklTAKBggqhkjOPQQDAgNIADBF\nAiEAwR1y+A0dSIDFGt462FIKCdwK73Houuqnq5bUPrhJcbICIEwTY8jwmGEqpJsR\nMbsEmn+norprWVY/fDVQxdVNk3iR\n-----END CERTIFICATE-----\n"
+            },
+            "registrar": [
+                {
+                    "enrollId": "user",
+                    "enrollSecret": "Igonnawin"
+                }
+            ],
+            "caName": "client"
+        }
+    }
+}
