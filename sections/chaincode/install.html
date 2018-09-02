@@ -4,37 +4,96 @@
       <div class="section-wrapper">
         <h1>
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
-          Chaincode Management 
+          Install/Instantiated Chaincode
         </h1>
-        <h3>初始化chaincode，调用 </h3>
-
-        <p>chaincode</p>
-
       </div>
     </header>
 
-    
     <div class="demo">
-      <div class="demo-wrapper">
-        <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">Chaincode List
-          <div class="demo-meta u-avoid-clicks">查询Chaincode <span class="demo-meta-divider">|</span> 管理和查询</div>
-        </button>
-        <div class="demo-box">
-          <div class="demo-controls">
-            <button class="demo-button" id="chaincode">初始化Chaincode</button>
-            <button class="demo-button" id="query">Query Chaincode</button>
-            <span class="demo-response" id="query-reply"></span>
+        <div class="demo-wrapper">
+          <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">Installed Chaincodes
+            <div class="demo-meta u-avoid-clicks">Get all installed chaincodes</div>
+          </button>
+          <div class="demo-box">
+            <div class="demo-controls">
+              <button class="demo-button" id="refresh-installed-chaincode">Refresh</button>
+            </div>
+             <span class="demo-response">
+              <table border="1" id="installed-chaincodes">
+                  <tr>
+                    <th>Chaincode Name</th>
+                    <th>Chaincode Version</th>
+                    <th>Chaincode Path</th>
+                  </tr>
+              </table>
+             </span>
           </div>
-           <p>TODO: Chaincode管理</p>
-
-           <p id="query-result"></p>
         </div>
-      </div>
     </div>
 
+
+    <div class="demo">
+        <div class="demo-wrapper">
+          <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">Instantiate Chaincodes
+            <div class="demo-meta u-avoid-clicks">Get all instantiated chaincodes</div>
+          </button>
+          <div class="demo-box">
+            <div class="demo-controls">
+              <button class="demo-button" id="refresh-instantiated-chaincode">Refresh</button>
+            </div>
+             <span class="demo-response">
+                <table border="1" id="instantiated-chaincods">
+                    <tr>
+                      <th>Chaincode Name</th>
+                      <th>Chaincode Version</th>
+                      <th>Chaincode Path</th>
+                    </tr>
+                </table>
+             </span>
+             <div class="demo-controls">
+                <button class="demo-button" id="instantiate-chaincode">Instantiate</button>
+              </div>
+              <span>
+                  <form class="demo-form">
+                        <!--TODO: 动态获取当前peer节点-->
+                        Peers<input type="text" class="demo-input" id="instantiate-peers" value="peer0.org1.example.com"><br>
+                        Chaincode Name<input type="text" class="demo-input" id="instantiate-chaincodeName" value="mycc"><br>
+                        Chaincode Type<input type="text" class="demo-input" id="instantiate-chaincodeType" value="golang"><br>
+                        Chaincode Version<input type="text" class="demo-input" id="instantiate-chaincodeVersion" value="v0"><br>
+                        Instantiate Fcn<input type="text" class="demo-input" id="instantiate-fcn" value=""><br>
+                        Instantiate Args<input type="text" class="demo-input" id="instantiate-args" value=""><br>
+                  </form>
+                </span>
+          </div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <div class="demo-wrapper">
+            <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">Install Chaincodes
+                <div class="demo-meta u-avoid-clicks">Install new chaincodes</div>
+              </button>
+              <div class="demo-box">
+                <div class="demo-controls">
+                  <button class="demo-button" id="chaincode-install-button">Install</button>
+                </div>
+                <span>
+                  <form class="demo-form">
+                        <!--TODO: 动态获取当前peer节点-->
+                        Peers<input type="text" class="demo-input" id="peers" value="peer0.org1.example.com"><br>
+                        Chaincode Name<input type="text" class="demo-input" id="chaincodeName" value="mycc"><br>
+                        Chaincode Path<input type="text" class="demo-input" id="chaincodePath" value="github.com/example_cc/go"><br>
+                        <!--TODO: 单选框实现type选择-->
+                        Chaincode Type<input type="text" class="demo-input" id="chaincodeType" value="golang"><br>
+                        Chaincode Version<input type="text" class="demo-input" id="chaincodeVersion" value="v0"><br>
+                  </form>
+                </span>
+              </div>
+        </div>
+    </div> 
+
     <script type="text/javascript">
-      require('./renderer-process/chaincode/chaincode')
-      require('./renderer-process/chaincode/query')
+      require('./renderer-process/chaincode/install')
     </script>
 
   </section>

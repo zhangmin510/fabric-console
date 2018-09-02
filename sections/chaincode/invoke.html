@@ -4,37 +4,37 @@
       <div class="section-wrapper">
         <h1>
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
-          Chaincode Management 
+          Invoke Chaincode 
         </h1>
-        <h3>初始化chaincode，调用 </h3>
-
-        <p>chaincode</p>
-
       </div>
     </header>
 
     
     <div class="demo">
-      <div class="demo-wrapper">
-        <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">Chaincode List
-          <div class="demo-meta u-avoid-clicks">查询Chaincode <span class="demo-meta-divider">|</span> 管理和查询</div>
-        </button>
-        <div class="demo-box">
-          <div class="demo-controls">
-            <button class="demo-button" id="chaincode">初始化Chaincode</button>
-            <button class="demo-button" id="query">Query Chaincode</button>
-            <span class="demo-response" id="query-reply"></span>
-          </div>
-           <p>TODO: Chaincode管理</p>
-
-           <p id="query-result"></p>
+        <div class="demo-wrapper">
+            <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">Invoke Chaincodes
+                <div class="demo-meta u-avoid-clicks">Invoke chaincodes</div>
+              </button>
+              <div class="demo-box">
+                <div class="demo-controls">
+                  <button class="demo-button" id="chaincode-invoke-button">Invoke</button>
+                </div>
+                <span>
+                  <form class="demo-form">
+                        <!--TODO: 动态获取当前peer节点-->
+                        Peers<input type="text" class="demo-input" id="invoke-peers" value="peer0.org1.example.com"><br>
+                        Chaincode Name<input type="text" class="demo-input" id="invoke-chaincodeName" value="mycc"><br>
+                        fcn<input type="text" class="demo-input" id="invoke-fcn" value="move"><br>
+                        args<input type="text" class="demo-input" id="invoke-args" value=""><br>
+                  </form>
+                </span>
+                <span class="demo-response" id="chaincode-invoke-result"></span>
+              </div>
         </div>
-      </div>
-    </div>
+    </div> 
 
     <script type="text/javascript">
-      require('./renderer-process/chaincode/chaincode')
-      require('./renderer-process/chaincode/query')
+      require('./renderer-process/chaincode/invoke')
     </script>
 
   </section>

@@ -1,0 +1,88 @@
+<template class="task-template">
+  <section id="channel-query-section" class="section js-section u-category-communication">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-communication"></use></svg>
+          Query Channel
+        </h1>
+      </div>
+    </header>
+    
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">Channels
+          <div class="demo-meta u-avoid-clicks">Query channel</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+             <button class="demo-button" id="refresh-channel-info">Refresh</button>
+          </div>
+          <span class="demo-response" id="channel-info"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+        <div class="demo-wrapper">
+          <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">ChainInfo
+            <div class="demo-meta u-avoid-clicks">Query ChainInfo</div>
+          </button>
+          <div class="demo-box">
+            <div class="demo-controls">
+              <button class="demo-button" id="refresh-channel-chaininfo">Refresh</button>
+            </div>
+            <span class="demo-response" id="channel-chaininfo"></span>
+          </div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <div class="demo-wrapper">
+          <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">Block
+            <div class="demo-meta u-avoid-clicks">Query block by block number</div>
+          </button>
+          <div class="demo-box">
+            <div class="demo-controls">
+              <button class="demo-button" id="get-channel-block">Get Block</button>
+            </div>
+            <span>
+                <form class="demo-form">
+                      <!--TODO: 动态获取当前peer节点-->
+                      Peer<input type="text" class="demo-input" id="query-block-peer" value="peer0.org1.example.com"><br>
+                      Block Number<input type="text" class="demo-input" id="query-block-id" value="1"><br>
+                      Block Hash<input type="text" class="demo-input" id="query-block-hash" value=""><br>
+                </form>
+              </span>
+            <span class="demo-response" id="channel-block"></span>
+          </div>
+        </div>
+    </div>
+
+    <div class="demo">
+        <div class="demo-wrapper">
+          <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">Transaction
+            <div class="demo-meta u-avoid-clicks">Query transaction by transaction id</div>
+          </button>
+          <div class="demo-box">
+            <div class="demo-controls">
+              <button class="demo-button" id="get-channel-transaction">Get Transaction</button>
+            </div>
+            <span>
+                <form class="demo-form">
+                      <!--TODO: 动态获取当前peer节点-->
+                      Peer<input type="text" class="demo-input" id="query-transaction-peer" value="peer0.org1.example.com"><br>
+                      Transaction Id<input type="text" class="demo-input" id="query-transaction-id" value=""><br>
+                </form>
+              </span>
+            <span class="demo-response" id="channel-transaction"></span>
+          </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+      require('./renderer-process/channel/query')
+    </script>
+
+  </section>
+</template>

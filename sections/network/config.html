@@ -4,31 +4,26 @@
       <div class="section-wrapper">
         <h1>
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-system"></use></svg>
-          Get app and system information
+          Connection Profile
         </h1>
-        <h3>With a few Node.js and Electron modules you can gather information about the user's system, app or screen.</h3>
-        <p>Links to the relevant documentation are in the demos below.</p>
       </div>
     </header>
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="app-info-demo-toggle" class="js-container-target demo-toggle-button">Get app information
-          <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Both</div>
+        <button id="app-info-demo-toggle" class="js-container-target demo-toggle-button">Connection Profile
+          <div class="demo-meta u-avoid-clicks">Get loaded connection profile</div>
         </button>
         <div class="demo-box">
           <div class="demo-controls">
-            <button class="demo-button" id="app-info">View Demo</button>
-            <span class="demo-response" id="got-app-info"></span>
+            <button class="demo-button" id="get-connection-profile">Get Connection Profile</button>
+            <span class="demo-response" id="connection-profile"></span>
           </div>
-          <p>The main process <code>app</code> module can be used to get the path at which your app is located on the user's computer.</p>
-          <p>In this example, to get that information from the renderer process, we use the <code>ipc</code> module to send a message to the main process requesting the app's path.</p>
-          <p>See the <a href="http://electron.atom.io/docs/api/app">app module documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> for more.</p>
         </div>
       </div>
     </div>
     <script type="text/javascript">
-      require('./renderer-process/network/config')
+      require('./renderer-process/network/connection-profile')
     </script>
 
   </section>
