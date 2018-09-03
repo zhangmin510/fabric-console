@@ -28,7 +28,7 @@ var createChannel = async function(channelName, channelConfigPath, username, org
 		logger.debug('Successfully got the fabric client for the organization "%s"', orgName);
 
 		// read in the envelope for the channel config raw bytes
-		var envelope = fs.readFileSync(path.join(__dirname, channelConfigPath));
+		var envelope = fs.readFileSync(channelConfigPath);
 		// extract the channel config bytes from the envelope to be signed
 		var channelConfig = client.extractChannelConfig(envelope);
 

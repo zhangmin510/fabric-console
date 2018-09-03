@@ -1,4 +1,5 @@
 'use strict';
+const settings = require('electron-settings')
 const ipc = require('electron').ipcRenderer
 const path = require('path');
 const APP_HOME = path.join(__dirname, '../../');
@@ -10,12 +11,19 @@ const joinChannelReply = document.getElementById('join-channe-reply');
 
 const createChannelBtn = document.getElementById('create-channel');
 const joinChannelBtn = document.getElementById('join-channel');
+const chooseChannelConfigPath = document.getElementById('create-channel-path');
 
-//TODO: 当前用户设置，可以通过context 菜单
-const peer = 'peer0.org1.example.com';
-const username = 'Jim';
-const orgname = 'Org1';
-const channelName = 'mychannel';
+
+const username = settings.get('username');
+const orgname = settings.get('orgname');
+
+chooseChannelConfigPath.addEventListener('click', function(e) {
+	ipc.send('open-file-dialog');
+})
+
+ipc.on('selected-directory', function (event, path) {
+  document.getElementById('create-channel-path').value = path;
+});
 
 createChannelBtn.addEventListener('click', async function(e) {
 	const channelName = document.getElementById('create-channel-name').value;

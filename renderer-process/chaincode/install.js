@@ -1,4 +1,5 @@
 'use strict';
+const settings = require('electron-settings')
 const ipc = require('electron').ipcRenderer
 const path = require('path');
 const APP_HOME = path.join(__dirname, '../../');
@@ -20,11 +21,10 @@ ipc.on('information-dialog-selection', function (event, index) {
 	console.log(message);
 });
 
-//TODO: 当前用户设置，可以通过context 菜单
-const peer = 'peer0.org1.example.com';
-const username = 'Jim';
-const orgname = 'Org1';
-const channelName = 'mychannel';
+const peer = settings.get('peer');
+const username = settings.get('username');
+const orgname = settings.get('orgname');
+const channelName = settings.get('channelName');
 
 async function refreshInstalledChaincodes() {
 	let ccs = await hfc.query.getInstalledChaincodes(peer, null, 'installed', username, orgname)

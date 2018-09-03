@@ -1,4 +1,5 @@
 'use strict';
+const settings = require('electron-settings')
 const ipc = require('electron').ipcRenderer
 const path = require('path');
 const APP_HOME = path.join(__dirname, '../../');
@@ -8,11 +9,9 @@ const hfc = require(path.join(APP_HOME, 'hfc-api/index.js'));
 const invokeBtn = document.getElementById('chaincode-invoke-button')
 const invokeResult = document.getElementById('chaincode-invoke-result')
 
-
-//TODO: 当前用户设置，可以通过context 菜单
-const username = 'Jim';
-const orgname = 'Org1';
-const channelName = 'mychannel';
+const username = settings.get('username');
+const orgname = settings.get('orgname');
+const channelName = settings.get('channelName');
 
 invokeBtn.addEventListener('click', async function (event) {
 	//TODO: 校验字段合法性
