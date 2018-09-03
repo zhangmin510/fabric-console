@@ -26,4 +26,5 @@ hfcApi.install = require('./install-chaincode.js');
 hfcApi.instantiate = require('./instantiate-chaincode.js');
 hfcApi.invoke = require('./invoke-transaction.js');
 hfcApi.query = require('./query.js');
+hfcApi.users = require('./user-management.js');
 hfcApi.client = hfc;

@@ -6,9 +6,9 @@
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
           User Management
         </h1>
-        <h3>Create, update, delete users. </h3>
+        <h3></h3>
 
-        <p>用户管理</p>
+        <p>Manage users.</p>
 
       </div>
     </header>
@@ -16,18 +16,70 @@
     
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">用户列表
-          <div class="demo-meta u-avoid-clicks">查询当前用户列表 <span class="demo-meta-divider">|</span> 管理和查询</div>
+        <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">User Registration
+          <div class="demo-meta u-avoid-clicks">Register a new identity</div>
         </button>
         <div class="demo-box">
+            <table width="350" border="0" align="center">
+                <tr>
+                    <td width="80"><b>User ID：</b></td>
+                    <td><input type="text" id="userid" class="bule"/>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                   <td><b>Affiliation：</b></td>
+                   <td>
+                    <input type="text" id="useraff" size="20"class="bule"/></td>
+                   </tr>
+                <tr>
+                <td colspan="3" align="center"><button class="demo-button" id="create-user">Register</button></td>
+            </table>
           <div class="demo-controls">
-            <button class="demo-button" id="create-user">创建用户</button>
             <span class="demo-response" id="create-user-reply"></span>
           </div>
-           <p>TODO: 获取当前用户，新建，更新，删除用户</p>
         </div>
       </div>
     </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">User List
+          <div class="demo-meta u-avoid-clicks">Get the user list.</div>
+        </button>
+        <div class="demo-box">
+          
+          <div id="user-list"> </div>
+
+          <div class="demo-controls">
+            <button class="demo-button" id="refresh-list">Refresh</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+        <div class="demo-wrapper">
+          <button id="manage-window-demo-toggle" class="js-container-target demo-toggle-button">User Revocation
+            <div class="demo-meta u-avoid-clicks">Revoke all certs of some identity.</div>
+          </button>
+          <div class="demo-box">
+              <table width="350" border="0" align="center">
+                  <tr>
+                      <td width="80"><b>User ID：</b></td>
+                      <td><input type="text" id="revoke-user-id" class="bule"/>
+                      </td>
+                      </td>
+                  </tr>
+                  
+                  <td colspan="3" align="center"><button class="demo-button" id="revoke-user">Revoke</button></td>
+              </table>
+            <div class="demo-controls">
+              <span class="demo-response" id="revoke-user-reply"></span>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <script type="text/javascript">
       require('./renderer-process/user/create')
