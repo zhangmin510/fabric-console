@@ -11,9 +11,13 @@ const refreshInstalledChaincodesBtn = document.getElementById('refresh-installed
 const refreshInstantiatedChaincodesBtn = document.getElementById('refresh-instantiated-chaincode')
 const instantiateChaincodeBtn = document.getElementById('instantiate-chaincode')
 const installBtn = document.getElementById('chaincode-install-button')
-
+//const chooseChaincodePath = document.getElementById('chaincodePath')
 const installedChaincodes = document.getElementById('installed-chaincodes')
 const instantiatedChaincodes = document.getElementById('instantiated-chaincods')
+
+//chooseChaincodePath.addEventListener('click', function(e) {
+//	ipc.send('open-file-dialog', 'chaincodePath');
+//});
 
 ipc.on('information-dialog-selection', function (event, index) {
 	let message = 'You selected '
@@ -71,12 +75,14 @@ instantiateChaincodeBtn.addEventListener('click', async function (event) {
 	const chaincodeType = document.getElementById('instantiate-chaincodeType').value;
 	const chaincodeVersion = document.getElementById('instantiate-chaincodeVersion').value;
 	const fcn = document.getElementById('instantiate-fcn').value;
-	const args = document.getElementById('instantiate-args').value;
+	let args = document.getElementById('instantiate-args').value;
 
 	if (!peers || !chaincodeName || !chaincodeType || !chaincodeVersion) {
 		ipc.send('open-error-dialog', 'Parameter Error', 'params should not be empty');
 		return;
 	}
+	
+	args = JSON.parse(args);
 
 	try {
 		let ret = await hfc.instantiate.instantiateChaincode(peers, s.get('channelName'), chaincodeName, chaincodeVersion, chaincodeType, fcn, args, s.get('username'), s.get('orgname'));

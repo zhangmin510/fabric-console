@@ -8,7 +8,7 @@ const hfc = require(path.join(APP_HOME, 'hfc-api/index.js'));
 const logger = hfc.helper.getLogger('channel-management');
 
 const createChannelReply = document.getElementById('create-channel-reply');
-const joinChannelReply = document.getElementById('join-channe-reply');
+const joinChannelReply = document.getElementById('join-channel-reply');
 
 const createChannelBtn = document.getElementById('create-channel');
 const joinChannelBtn = document.getElementById('join-channel');
@@ -34,7 +34,7 @@ joinChannelBtn.addEventListener('click', async function(e) {
 	const channelName = document.getElementById('join-channel-name').value;
 	const peers = document.getElementById('join-channel-peers').value.split(',');
 	try {
-        let ret =  await hfc.join.joinChannel(channelName, peers, s.get('channelName'), s.get('orgname'));
+        let ret =  await hfc.join.joinChannel(channelName, peers, s.get('username'), s.get('orgname'));
 		logger.info('join channel response:', ret);
 		joinChannelReply.innerHTML = JSON.stringify(ret);
 	} catch(e) {

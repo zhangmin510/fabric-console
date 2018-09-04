@@ -59,7 +59,7 @@ setCpBtn.addEventListener('click', async function(e) {
   logger.info('settings username', settings.get('username'));
   logger.info('settings client cp', settings.get(orgname.value + '-connection-profile-path'))
   logger.info('settings network cp', settings.get('network-connection-profile-path'));
-
+  ipc.send('open-information-dialog', 'Connection Profile', 'Set Fabric Connection Profile Success');
 });
 
 currentConnectionProfile();
