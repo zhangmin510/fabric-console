@@ -71,6 +71,7 @@ if (sectionId) {
   const section = document.getElementById(sectionId)
   if (section) section.click()
 } else {
-  activateDefaultSection()
-  displayAbout()
+  showMainContent()
+  document.getElementById('button-network-config').click();
+  document.getElementById('fabric-info-demo-toggle').click();
 }

@@ -25,7 +25,8 @@ var tx_id = null;
 var installChaincode = async function(peers, chaincodeName, chaincodePath,
 	chaincodeVersion, chaincodeType, username, org_name) {
 	logger.debug('\n\n============ Install chaincode on organizations ============\n');
-	helper.setupChaincodeDeploy();
+	// user system gopath
+	//helper.setupChaincodeDeploy();
 	let error_message = null;
 	try {
 		logger.info('Calling peers in organization "%s" to join the channel', org_name);
@@ -60,7 +61,7 @@ var installChaincode = async function(peers, chaincodeName, chaincodePath,
 				one_good = true;
 				logger.info('install proposal was good');
 			} else {
-				logger.error('install proposal was bad %j',proposalResponses.toJSON());
+				logger.error('install proposal was bad %j',proposalResponses);
 			}
 			all_good = all_good & one_good;
 		}

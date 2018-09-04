@@ -41,14 +41,21 @@ async function getClientForOrg (userorg, username) {
 
 	// build a client context and load it with a connection profile
 	// lets only load the network settings and save the client for later
-	let client = hfc.loadFromConfig(hfc.getConfigSetting('network'+config));
+	const networkConfig = hfc.getConfigSetting('network'+config);
+	if (!networkConfig) {
+		throw new Error('Fabirc network connection profile not set');
+	}
+	let client = hfc.loadFromConfig(networkConfig);
 
 	// This will load a connection profile over the top of the current one one
 	// since the first one did not have a client section and the following one does
 	// nothing will actually be replaced.
 	// This will also set an admin identity because the organization defined in the
 	// client section has one defined
-	client.loadFromConfig(hfc.getConfigSetting(userorg+config));
+	const clientConfig = hfc.getConfigSetting(userorg+config);
+	if (clientConfig) {
+		client.loadFromConfig(clientConfig);
+	}
 
 	// this will create both the state store and the crypto store based
 	// on the settings in the client section of the connection profile
@@ -83,9 +90,9 @@ var getRegisteredUser = async function(username, userOrg, isJson) {
 		} else {
 			// user was not enrolled, so we will need an admin user object to register
 			logger.info('User %s was not enrolled, so we will need an admin user object to register',username);
-			var admins = hfc.getConfigSetting('admins');
-			let adminUserObj = await client.setUserContext({username: admins[0].username, password: admins[0].secret});
 			let caClient = client.getCertificateAuthority();
+			let admins = caClient.getRegistrar();
+        	let adminUserObj = await client.setUserContext({username: admins[0].enrollId, password: admins[0].enrollSecret});
 			let secret = await caClient.register({
 				enrollmentID: username,
 				affiliation: userOrg.toLowerCase() + '.department1'
@@ -110,7 +117,6 @@ var getRegisteredUser = async function(username, userOrg, isJson) {
 		logger.error('Failed to get registered user: %s with error: %s', username, error.toString());
 		return 'failed '+error.toString();
 	}
-
 };
 
 

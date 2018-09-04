@@ -6,30 +6,29 @@ const APP_HOME = path.join(__dirname, '../../');
 
 const hfc = require(path.join(APP_HOME, 'hfc-api/index.js'));
 
-//TODO: set up
-const username = 'Jim';
-const orgname = 'Org1';
-const channelName = 'mychannel';
-
 async function getInfo() {
-    const client = await hfc.helper.getClientForOrg(orgname, username);
+    if (settings.has('orgname')) {
 
-    const mspId = await client.getMspid();
-    settings.set('mspId', mspId);
+        hfc.setUpConfigSetting();
 
-    const peers = await client.getPeersForOrg(mspId);
+        const client = await hfc.helper.getClientForOrg(settings.get('orgname'));
+        const mspId = await client.getMspid();
+        settings.set('mspId', mspId);
 
-    settings.set('peers', peers);
-    settings.set('peer', peers[0].getName());
-    settings.set('username', username);
-    settings.set('orgname', orgname);
-    settings.set('channelName', channelName);
+        const peers = await client.getPeersForOrg(mspId);
 
+        settings.set('peers', peers);
+        settings.set('peer', peers[0].getName());
 
-    for (let peer of peers) {
-    console.log(peer.getName());
-    console.log(peer.getUrl());
+        const channel = client.getChannel();
+        settings.set('channelName', channel.getName());
+
+        let caClient = client.getCertificateAuthority();
+		let admins = caClient.getRegistrar();
+        settings.set('username', admins[0].enrollId);
     }
+    console.log('settings file location:', settings.file());
+    console.log('settings current:', settings.getAll());
 }
 
 getInfo();

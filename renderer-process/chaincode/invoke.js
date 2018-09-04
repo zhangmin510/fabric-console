@@ -1,17 +1,14 @@
 'use strict';
-const settings = require('electron-settings')
+const s = require('electron-settings')
 const ipc = require('electron').ipcRenderer
 const path = require('path');
 const APP_HOME = path.join(__dirname, '../../');
 
 const hfc = require(path.join(APP_HOME, 'hfc-api/index.js'));
+const logger = hfc.helper.getLogger('chaincode-management');
 
 const invokeBtn = document.getElementById('chaincode-invoke-button')
 const invokeResult = document.getElementById('chaincode-invoke-result')
-
-const username = settings.get('username');
-const orgname = settings.get('orgname');
-const channelName = settings.get('channelName');
 
 invokeBtn.addEventListener('click', async function (event) {
 	//TODO: 校验字段合法性
@@ -19,15 +16,21 @@ invokeBtn.addEventListener('click', async function (event) {
 	const chaincodeName = document.getElementById('invoke-chaincodeName').value;
 	const fcn = document.getElementById('invoke-fcn').value;
 	let args = document.getElementById('invoke-args').value;
+
+	if (!peers || !chaincodeName || !fcn || !args) {
+		ipc.send('open-error-dialog', 'Parameter Error', 'params should not be empty');
+		return;
+	}
+
 	args = JSON.parse(args);
 
 	try {
-		let ret = await hfc.invoke.invokeChaincode(peers, channelName, chaincodeName, fcn, args, username, orgname);
-		console.log(ret);
+		let ret = await hfc.invoke.invokeChaincode(peers, s.get('channelName'), chaincodeName, fcn, args, s.get('username'), s.get('orgname'));
+		logger.info('invoke chaincode response:', ret);
 		invokeResult.innerHTML = ret;
 		ipc.send('open-information-dialog', 'Invoke Chaincode', ret);
 	} catch(e) {
-		console.log(e);
+		logger.error('invoke chaincode failed with error ', e);
 		ipc.send('open-error-dialog', 'Invoke Chaincode Failed', e.message);
 	}
 });

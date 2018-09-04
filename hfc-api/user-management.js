@@ -62,15 +62,14 @@ var getUsers = async function(userOrg) {
 		var client = await getClientForOrg(userOrg);
 		logger.debug('Successfully initialized the credential stores');
         // we will need an admin user object
-        logger.info('We will need an admin user object');
-        var admins = hfc.getConfigSetting('admins');
-        let adminUserObj = await client.setUserContext({username: admins[0].username, password: admins[0].secret});
-        let caClient = client.getCertificateAuthority();
+		logger.info('We will need an admin user object');
+		let caClient = client.getCertificateAuthority();
+		let admins = caClient.getRegistrar();
+		logger.info('First ca registrar info', admins[0]);
+        let adminUserObj = await client.setUserContext({username: admins[0].enrollId, password: admins[0].enrollSecret});
         let ids = await caClient.newIdentityService();
         let all = await ids.getAll(adminUserObj);
-        
 		
-
         logger.debug('Successfully get all users');
         return all;
 	} catch(error) {
@@ -84,10 +83,10 @@ var registerUser = async function(user_name, user_aff, userOrg) {
 		var client = await getClientForOrg(userOrg);
 		logger.debug('Successfully initialized the credential stores');
         //we will need an admin user object to register
-        logger.info('we will need an admin user object to register');
-        var admins = hfc.getConfigSetting('admins');
-        let adminUserObj = await client.setUserContext({username: admins[0].username, password: admins[0].secret});
-        let caClient = client.getCertificateAuthority();
+		logger.info('we will need an admin user object to register');
+		let caClient = client.getCertificateAuthority();
+		let admins = caClient.getRegistrar();
+        let adminUserObj = await client.setUserContext({username: admins[0].enrollId, password: admins[0].enrollSecret});
         let secret = await caClient.register({
             enrollmentID: user_name,
             affiliation: user_aff,
@@ -107,10 +106,10 @@ var revokeUser = async function(user_name, userOrg) {
 		var client = await getClientForOrg(userOrg);
 		logger.debug('Successfully initialized the credential stores');
         //we will need an admin user object to register
-        logger.info('we will need an admin user object to revoke');
-        var admins = hfc.getConfigSetting('admins');
-        let adminUserObj = await client.setUserContext({username: admins[0].username, password: admins[0].secret});
-        let caClient = client.getCertificateAuthority();
+		logger.info('we will need an admin user object to revoke');
+		let caClient = client.getCertificateAuthority();
+		let admins = caClient.getRegistrar();
+        let adminUserObj = await client.setUserContext({username: admins[0].enrollId, password: admins[0].enrollSecret});
         await caClient.revoke({
             enrollmentID: user_name,
         }, adminUserObj);
