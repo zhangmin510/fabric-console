@@ -68,11 +68,8 @@ var getUsers = async function(userOrg) {
         let caClient = client.getCertificateAuthority();
         let ids = await caClient.newIdentityService();
         let all = await ids.getAll(adminUserObj);
-
-        let testr = await caClient.generateCRL({},adminUserObj);
-        console.log('herehere' + JSON.stringify(testr));
         
-
+		
 
         logger.debug('Successfully get all users');
         return all;
@@ -91,11 +88,12 @@ var registerUser = async function(user_name, user_aff, userOrg) {
         var admins = hfc.getConfigSetting('admins');
         let adminUserObj = await client.setUserContext({username: admins[0].username, password: admins[0].secret});
         let caClient = client.getCertificateAuthority();
-        await caClient.register({
+        let secret = await caClient.register({
             enrollmentID: user_name,
             affiliation: user_aff,
             role: 'client'
-        }, adminUserObj);
+		}, adminUserObj);
+		await client.setUserContext({username:user_name, password:secret});
         return true;
 	} catch(error) {
 		logger.error('Failed to get registered user: %s with error: %s', user_name, error.toString());
